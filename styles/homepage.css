@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
+
+#home {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 80vh;
+    background-color: yellow;
+}
+
+.text {
+    position: absolute;
+}
+
+.intro {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.75rem;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+.about {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.dev, .study, .highlight {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    width: 50%;
+    min-height: 4rem;
+
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.highlight {
+    background-color: green;
+    z-index: 1;
+    position: absolute;
+    animation: moveHighlight 3s cubic-bezier(.5, 0, 1, 0) infinite;
+}
+
+@keyframes moveHighlight {
+    0% {
+        left: 0%;
+    }
+    50% {
+        left: 50%;
+    }
+    100% {
+        left: 0%;
+    }
+}

@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function Header () {
     const handleMouseOver = () => {
         var elem = document.getElementsByClassName("top")[0];
