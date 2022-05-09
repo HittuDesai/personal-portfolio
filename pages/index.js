@@ -17,7 +17,7 @@ export default function Home() {
       <Header />
 
       {/* MAIN */}
-      <HomePage />
+      {/* <HomePage /> */}
       <ProjectPage />
       <ContactPage />
 

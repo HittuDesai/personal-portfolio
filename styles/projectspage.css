@@ -1,0 +1,19 @@
+#project {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 80vh;
+    background-color: purple;
+}
+
+#carousel {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    height: 20rem;
+    background-color: green;
+}

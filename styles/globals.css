@@ -13,4 +13,6 @@ div.main-bg {
   background: grey content-box;
   background-repeat: no-repeat;
   background-size: cover;
+
+  overflow: hidden;
 }
