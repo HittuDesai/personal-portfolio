@@ -1,7 +1,7 @@
 import { MdExpandMore } from 'react-icons/md'
 import { SiGithub } from 'react-icons/si'
 import { FaExternalLinkAlt } from 'react-icons/fa'
-
+import projects from '../data/projects'
 
 function ProjectPage ({ project }) {
     const handleMouseOver = (e) => {
@@ -29,11 +29,12 @@ function ProjectPage ({ project }) {
         var icon = titleRowContainer.childNodes.item(1);
         textDiv.classList.remove("animateText");
         icon.classList.remove("rotateExpandArrowIcon");
-
     }
 
+    var index = projects.indexOf(project);
+
     return (
-        <section id={project["name"]} className="card">
+        <section id={index} className="card">
             <div className="titleRow">
                 <div className="projectName">{project["name"]}</div>
                 <div className="expandArrow" onMouseOver={e => handleMouseOver(e)} onMouseOut={e => handleMouseOut(e)}><MdExpandMore className='expandArrowIcon' /></div>
