@@ -1,0 +1,124 @@
+/* MOBILE LAYOUT */
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 3rem;
+    background-color: blue;
+}
+
+#hamburger, #logo {
+    z-index: 10;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 100%;
+    aspect-ratio: 1;
+    background-color: red;
+}
+
+.hamburger-line {
+    width: 80%;
+    height: 0.5rem;
+
+    margin: 0.375rem 0;
+    background-color: yellow;
+}
+
+.top {
+    position: absolute;
+    top: 0;
+    transition: all ease-in-out 1s;
+}
+
+.topStay {
+    top: 0.875rem;
+    width: 100%;
+    transform: rotate(45deg);
+}
+
+#hamburger:hover .top {
+    top: 0.875rem;
+    width: 100%;
+    transform: rotate(45deg);
+}
+
+.mid {
+    position: absolute;
+    top: 0.875rem;
+    transition: width ease-in-out 1s;
+}
+
+.midStay {
+    width: 0%;
+}
+
+#hamburger:hover .mid {
+    width: 0%;
+}
+
+.bot {
+    position: absolute;
+    top: 1.75rem;
+    transition: all ease-in-out 1s;
+}
+
+.botStay {
+    top: 0.875rem;
+    width: 100%;
+    transform: rotate(-45deg);
+}
+
+#hamburger:hover .bot {
+    top: 0.875rem;
+    width: 100%;
+    transform: rotate(-45deg);
+}
+
+nav {
+    z-index: 5;
+    position: absolute;
+    right: 0px;
+    width: 10rem;
+    color: white;
+
+    transform: translateY(0rem);
+    visibility: hidden;
+    opacity: 0;
+
+    transition: all 1s;
+}
+
+#hamburger:hover ~nav, nav:hover {
+    transform: translateY(3rem);
+    visibility: visible;
+    opacity: 1;
+}
+
+nav ul {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    
+    list-style: none;
+
+    background: purple;
+}
+
+nav li {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
