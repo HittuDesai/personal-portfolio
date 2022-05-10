@@ -1,3 +1,11 @@
+:root {
+  --blue: #05386B;
+  --green-dark: #379683;
+  --green-mid: #5CDB95;
+  --green-light: #8EE4AF;
+  --white: #EDF5E1;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -8,9 +16,7 @@
 
 div.main-bg {
   width: 100vw;
-  height: 100vh;
-  /* background: url(../img/bg.jpg) content-box; */
-  background: grey content-box;
+  min-height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
 

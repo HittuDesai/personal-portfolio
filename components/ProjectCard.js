@@ -53,8 +53,8 @@ function ProjectPage ({ project }) {
             <div className="projectLinks">
                 <div className="introLine">LEARN MORE: </div>
                 <div className="linksToProject">
-                    <div className="githubLink"><a><SiGithub /></a></div>
-                    <div className="websiteLink"><a><FaExternalLinkAlt /></a></div>
+                    <div className="githubLink"><a href={project["github"]} target="blank"><SiGithub className='black'/></a></div>
+                    <div className="websiteLink"><a target='blank' href={project["website"]}><FaExternalLinkAlt className='black'/></a></div>
                 </div>
             </div>
         </section>

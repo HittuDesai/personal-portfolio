@@ -1,3 +1,5 @@
+import { IoLogoApple } from 'react-icons/io'
+
 function Header () {
     const handleMouseOver = () => {
         var elem = document.getElementsByClassName("top")[0];
@@ -19,7 +21,7 @@ function Header () {
 
     return (
         <header>
-            <div id="logo"></div>
+            <div id="logo"><IoLogoApple color='#05386B' size="100%"/></div>
             <div id="hamburger">
                 <div className="hamburger-line top"></div>
                 <div className="hamburger-line mid"></div>

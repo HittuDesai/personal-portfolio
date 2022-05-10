@@ -34,7 +34,7 @@ const projects = [
         "description": "this project is super cool and fun and you should check out the below given links to github and the hosted website",
         "techstack": [SiPhp, SiHtml5, SiCss3],
         "github": "https://github.com/HittuDesai/WeExalate",
-        "website": undefined,
+        "website": "https://weexalate.000webhostapp.com",
     },
     {
         "name": "RudraDevelopers",

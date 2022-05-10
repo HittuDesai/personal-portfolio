@@ -9,7 +9,7 @@
     justify-content: center;
 
     height: 80vh;
-    background-color: yellow;
+    background-color: var(--green-mid);
 }
 
 .text {
@@ -21,12 +21,16 @@
     font-size: 0.75rem;
     font-weight: normal;
     text-transform: uppercase;
+
+    color: var(--white);
 }
 
 .name {
     font-family: 'Raleway', sans-serif;
     font-size: 2.5rem;
     font-weight: bolder;
+
+    color: var(--blue);
 }
 
 .about {
@@ -41,6 +45,8 @@
 }
 
 .dev, .study, .highlight {
+    color: var(--green-light);
+
     z-index: 2;
     display: flex;
     align-items: center;
@@ -54,10 +60,10 @@
 }
 
 .highlight {
-    background-color: green;
+    background-color: var(--green-dark);
     z-index: 1;
     position: absolute;
-    animation: moveHighlight 3s cubic-bezier(.5, 0, 1, 0) infinite;
+    animation: moveHighlight 3s cubic-bezier(0.5, 0, 0.5, 0) infinite;
 }
 
 @keyframes moveHighlight {
