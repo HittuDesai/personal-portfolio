@@ -3,6 +3,7 @@ import '../styles/header.css'
 import '../styles/homepage.css'
 import '../styles/projectspage.css'
 import '../styles/projectcard.css'
+import '../styles/contactpage.css'
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />

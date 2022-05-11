@@ -17,8 +17,8 @@ export default function Home() {
       <Header />
 
       {/* MAIN */}
-      <HomePage />
-      <ProjectPage />
+      {/* <HomePage /> */}
+      {/* <ProjectPage /> */}
       <ContactPage />
 
       {/* FOOTER */}
