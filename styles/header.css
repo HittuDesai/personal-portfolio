@@ -120,10 +120,6 @@ nav li {
     display: flex;
     align-items: center;
     justify-content: center;
-}
 
-nav a {
-    color: white;
-    text-decoration: none;
     text-transform: uppercase;
 }
