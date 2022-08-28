@@ -1,17 +1,26 @@
-import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import { NavBar } from "../components/NavBar";
+import { createTheme, CssBaseline, Grid, ThemeProvider } from "@mui/material";
 
-function MyApp({ Component, pageProps }) {
+function App({ Component, pageProps }) {
 	const darkTheme = createTheme({
 		palette: {
 			mode: "dark",
 		},
 	});
+
 	return (
 		<ThemeProvider theme={darkTheme}>
 			<CssBaseline />
-			<Component {...pageProps} />
+			<Grid container flexDirection="column" sx={{ height: "100vh" }}>
+				<Grid item>
+					<NavBar />
+				</Grid>
+				<Grid item flex={1}>
+					<Component {...pageProps} />
+				</Grid>
+			</Grid>
 		</ThemeProvider>
 	);
 }
 
-export default MyApp;
+export default App;
