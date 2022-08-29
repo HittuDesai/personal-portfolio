@@ -34,7 +34,7 @@ export function NavBar() {
 	);
 
 	return (
-		<AppBar>
+		<AppBar position="sticky">
 			{screenLessThanSM ? (
 				<>
 					<Toolbar>
