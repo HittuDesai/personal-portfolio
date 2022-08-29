@@ -20,7 +20,12 @@ export function NavBar() {
 		<Typography
 			align="center"
 			onClick={() => console.log(menuItemText)}
-			sx={{ width: "100%", padding: "1rem", border: "1px solid red" }}
+			sx={{
+				width: "100%",
+				padding: "1rem",
+				border: "1px solid red",
+				fontFamily: "Concert One, sans-serif",
+			}}
 		>
 			{menuItemText}
 		</Typography>
