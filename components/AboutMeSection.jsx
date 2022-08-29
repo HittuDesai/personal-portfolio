@@ -1,8 +1,18 @@
-import { Button, Grid, Paper, Typography } from "@mui/material";
+import {
+	Button,
+	Grid,
+	Paper,
+	Typography,
+	useMediaQuery,
+	useTheme,
+} from "@mui/material";
 import { useState } from "react";
 import aboutMeDescriptions from "../data/aboutme";
 
 export function AboutMeSection() {
+	const theme = useTheme();
+	const screenLessThanSM = useMediaQuery(theme.breakpoints.down("sm"));
+
 	const [currentDescription, setCurrentDescription] = useState(1);
 	const currentDescriptionTextObject =
 		aboutMeDescriptions[currentDescription];
@@ -57,17 +67,21 @@ export function AboutMeSection() {
 			</Grid>
 			<Grid
 				item
-				sx={{ width: "100%", padding: "0 3rem", marginTop: "1rem" }}
+				sx={{
+					width: "100%",
+					padding: screenLessThanSM ? "0 1rem" : "0 3rem",
+					marginTop: "1rem",
+				}}
 			>
 				<Paper
 					elevation={24}
 					sx={{
 						width: "100%",
 						height: "100%",
-						padding: "3rem",
+						padding: screenLessThanSM ? "1rem" : "3rem",
 						display: "flex",
 						flexDirection: "column",
-						gap: "3rem",
+						gap: screenLessThanSM ? "1rem" : "3rem",
 					}}
 				>
 					{Object.keys(currentDescriptionTextObject).map(key => (
@@ -75,7 +89,9 @@ export function AboutMeSection() {
 							key={key}
 							sx={{
 								fontFamily: "Concert One, sans-serif",
-								fontSize: "1.25rem",
+								fontSize: screenLessThanSM
+									? "inherit"
+									: "1.25rem",
 							}}
 						>
 							{currentDescriptionTextObject[key]}

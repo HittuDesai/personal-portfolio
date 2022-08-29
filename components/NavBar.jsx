@@ -4,15 +4,11 @@ import {
 	IconButton,
 	Toolbar,
 	Typography,
-	useMediaQuery,
-	useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 
 export function NavBar() {
-	const theme = useTheme();
-	const screenLessThanSM = useMediaQuery(theme.breakpoints.down("sm"));
 	const [expandMenu, setExpandMenu] = useState(false);
 
 	const menuItemTexts = ["About Me", "My Projects", "Contact Me"];
@@ -40,26 +36,18 @@ export function NavBar() {
 
 	return (
 		<AppBar position="sticky">
-			{screenLessThanSM ? (
-				<>
-					<Toolbar>
-						<IconButton
-							onClick={() =>
-								setExpandMenu(previousValue => !previousValue)
-							}
-						>
-							<MenuIcon />
-						</IconButton>
-					</Toolbar>
-					<Collapse in={expandMenu}>
-						<NavigationMenuItems />
-					</Collapse>
-				</>
-			) : (
-				<Toolbar>
-					<NavigationMenuItems />
-				</Toolbar>
-			)}
+			<Toolbar>
+				<IconButton
+					onClick={() =>
+						setExpandMenu(previousValue => !previousValue)
+					}
+				>
+					<MenuIcon />
+				</IconButton>
+			</Toolbar>
+			<Collapse in={expandMenu}>
+				<NavigationMenuItems />
+			</Collapse>
 		</AppBar>
 	);
 }
