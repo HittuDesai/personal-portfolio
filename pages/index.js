@@ -13,7 +13,7 @@ export default function Home({ reposArray }) {
 
 export async function getStaticProps() {
 	const octokit = new Octokit({
-		auth: "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",
+		auth: "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",
 		baseUrl: "",
 	});
 	const response = await octokit.request({
@@ -53,7 +53,6 @@ export async function getStaticProps() {
 			contributorObject => contributorObject.login === "HittuDesai"
 		);
 		newRepoData["commits"] = adminObject[0].contributions;
-		newReposArray.push(newRepoData);
 		newRepoData["topics"] = repo.topics;
 		newReposArray.push(newRepoData);
 	}
