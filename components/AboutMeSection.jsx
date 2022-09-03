@@ -61,7 +61,7 @@ export function AboutMeSection() {
 				flexDirection="row"
 				alignItems="center"
 				justifyContent="space-evenly"
-				sx={{ width: "100%" }}
+				sx={{ width: "100%", margin: "3rem 0 0.5rem 0" }}
 			>
 				<AboutMeNavigation />
 			</Grid>
