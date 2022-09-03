@@ -1,12 +1,12 @@
-import { Grid, Paper, Typography } from "@mui/material";
-import UsbIcon from "@mui/icons-material/Usb";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import React from "react";
+import { Box, Grid, Link, Paper, Typography } from "@mui/material";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import { SiMaterialui, SiHtml5 } from "react-icons/si";
 
 export function ProjectCard({ repoData }) {
+	const { forks, watchers, website, commits, topics } = repoData;
 	return (
-		<Paper elevation={24}>
+		<Paper elevation={24} sx={{ padding: "1rem" }}>
 			<Grid container flexDirection="column">
 				<Typography variant="overline" fontSize="small">
 					{repoData.name}
@@ -17,53 +17,56 @@ export function ProjectCard({ repoData }) {
 				<Typography variant="caption">
 					Tech:{" "}
 					<>
-						{repoData.languages.map((language, index) => (
-							<React.Fragment key={index}>
-								{language}
-							</React.Fragment>
-						))}
+						{topics.map((topic, index) => {
+							if (topic === "material-ui")
+								return (
+									<React.Fragment key={index}>
+										<SiMaterialui />
+									</React.Fragment>
+								);
+						})}
 					</>
 				</Typography>
-				<Grid
-					container
-					flexDirection="row"
-					alignItems="center"
-					justifyContent="space-evenly"
+				<Box
+					sx={{
+						display: "flex",
+						flexDirection: "row",
+						alignItems: "center",
+						justifyContent: "space-between",
+					}}
 				>
-					<Grid
-						item
-						container
-						flexDirection="row"
-						alignItems="center"
-						justifyContent="center"
-					>
-						<UsbIcon />
-						<p>{repoData.forks}</p>
-					</Grid>
-					<Grid
-						item
-						container
-						flexDirection="row"
-						alignItems="center"
-						justifyContent="center"
-					>
-						<VisibilityIcon />
-						<p>{repoData.watchers}</p>
-					</Grid>
-					<Grid
-						item
-						container
-						flexDirection="row"
-						alignItems="center"
-						justifyContent="center"
-					>
-						{repoData?.website?.trim().length > 0 && (
-							<a href={repoData.website} target="_blank">
-								<OpenInNewIcon />
-							</a>
-						)}
-					</Grid>
-				</Grid>
+					{(forks !== 0 || watchers !== 0 || commits !== 0) && (
+						<Typography variant="caption">
+							{forks !== 0 && (
+								<span style={{ marginRight: "0.5rem" }}>
+									{forks} Forks,
+								</span>
+							)}
+							{watchers !== 0 && (
+								<span style={{ marginRight: "0.5rem" }}>
+									{watchers} Watchers,
+								</span>
+							)}
+							{commits !== 0 && <span>{commits} Commits</span>}
+						</Typography>
+					)}
+					{website && (
+						<Typography variant="caption">
+							<Grid
+								container
+								flexDirection="row"
+								alignItems="center"
+							>
+								<span style={{ marginRight: "0.5rem" }}>
+									Check it out
+								</span>
+								<Link href={website} target="_blank">
+									<OpenInNewIcon />
+								</Link>
+							</Grid>
+						</Typography>
+					)}
+				</Box>
 			</Grid>
 		</Paper>
 	);

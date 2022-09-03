@@ -38,7 +38,7 @@ export function Projects({ reposArray }) {
 				}}
 				gap="1rem"
 			>
-				{reposArray.map((repoData, index) => (
+				{reposArray?.map((repoData, index) => (
 					<Grid
 						key={index}
 						item
@@ -48,6 +48,7 @@ export function Projects({ reposArray }) {
 						md={4}
 						sm={6}
 						xs={12}
+						sx={{ maxHeight: "15rem" }}
 					>
 						<ProjectCard repoData={repoData} />
 					</Grid>

@@ -1,5 +1,4 @@
 const { Octokit } = require("@octokit/core");
-import { useEffect } from "react";
 import { AboutMeSection } from "../components/AboutMeSection";
 import { Projects } from "../components/Projects";
 
@@ -14,7 +13,7 @@ export default function Home({ reposArray }) {
 
 export async function getStaticProps() {
 	const octokit = new Octokit({
-		auth: "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",
+		auth: "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",
 		baseUrl: "",
 	});
 	const response = await octokit.request({
@@ -24,7 +23,15 @@ export async function getStaticProps() {
 	const repos = response.data;
 	let newReposArray = [];
 	for (const repo of repos) {
-		const { name, forks, watchers, description, homepage } = repo;
+		const {
+			name,
+			forks,
+			watchers,
+			description,
+			homepage,
+			languages_url,
+			contributors_url,
+		} = repo;
 		const newRepoData = {
 			name,
 			forks,
@@ -32,12 +39,22 @@ export async function getStaticProps() {
 			description,
 			website: homepage,
 		};
-		const languagesURL = repo.languages_url;
 		const languagesData = await octokit.request({
 			method: "GET",
-			url: languagesURL,
+			url: languages_url,
 		});
 		newRepoData["languages"] = Object.keys(languagesData.data);
+
+		const contributorsData = await octokit.request({
+			method: "GET",
+			url: contributors_url,
+		});
+		const adminObject = contributorsData.data.filter(
+			contributorObject => contributorObject.login === "HittuDesai"
+		);
+		newRepoData["commits"] = adminObject[0].contributions;
+		newReposArray.push(newRepoData);
+		newRepoData["topics"] = repo.topics;
 		newReposArray.push(newRepoData);
 	}
 	return {
