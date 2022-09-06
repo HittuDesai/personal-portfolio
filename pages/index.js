@@ -1,5 +1,6 @@
 const { Octokit } = require("@octokit/core");
 import { AboutMeSection } from "../components/AboutMeSection";
+import { Footer } from "../components/Footer";
 import { Projects } from "../components/Projects";
 
 export default function Home({ reposArray }) {
@@ -7,13 +8,14 @@ export default function Home({ reposArray }) {
 		<>
 			<AboutMeSection />
 			<Projects reposArray={reposArray} />
+			<Footer />
 		</>
 	);
 }
 
 export async function getStaticProps() {
 	const octokit = new Octokit({
-		auth: "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",
+		auth: "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",
 		baseUrl: "",
 	});
 	const response = await octokit.request({
